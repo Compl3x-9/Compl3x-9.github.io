@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en" itemscope itemtype="http://schema.org/Person">
+<head>
+  <meta charset="utf-8">
+  <!-- Site Meta Data -->
+  <title>/CryptoHack/General/Encoding full writeups</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Compl3x-9">
+
+  <link rel="shortcut icon" href="">
+
+  <!-- schema.org -->
+  <meta itemprop="name" content="Compl3x-9's web">
+  <meta itemprop="image" content="">
+  <meta itemprop="description" content="">
+
+  <!-- Style Meta Data -->
+  <link rel="stylesheet" href="./theme/css/milligram.css" type="text/css" />
+  <link rel="stylesheet" href="./theme/css/custom.css" type="text/css" />
+  <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css"
+      crossorigin="anonymous">
+  <!-- Feed Meta Data -->
+
+  <!-- Twitter Feed -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="">
+  <meta name="twitter:image" content="">
+
+<meta name="twitter:creator" content="">
+<meta name="twitter:url" content="./cryptohack-encoding-hidden.html">
+<meta name="twitter:title" content="Compl3x-9's web ~ /CryptoHack/General/Encoding full writeups">
+<meta name="twitter:description" content="Writeups for the encoding challenges from cryptohack">
+
+<!-- Facebook Meta Data -->
+<meta property="og:title" content="Compl3x-9's web ~ /CryptoHack/General/Encoding full writeups" />
+<meta property="og:description" content="Writeups for the encoding challenges from cryptohack" />
+<meta property="og:image" content="" />
+</head>
+
+<body>
+    <div class="container">
+
+    <!-- Navbar -->
+      <div class="navbar">
+        <ul>
+            <div>
+                <li>
+                    <a href="."><h3>Compl3x-9's web</h3></a>
+                </li>
+                <li>
+                </li>
+            </div>
+        </ul>
+      </div>
+
+  <!-- Sidebar -->
+    <sidebar>
+        <ul class="static-item">
+
+                <li><a href="./pages/about.html">About</a></li>
+                <li><a href="./pages/tfg.html">Bachelor's Thesis</a></li>
+        </ul>
+
+        <ul>
+                <div class="cat-border">
+                <li style="color: #F2F1EF; background-color: #6C7A89;">Categories</li>
+                    <li><a href="./category/cryptohack.html">CryptoHack</a></li>
+                    <li><a href="./category/publicity.html">Publicity</a></li>
+                </div>
+        </ul>
+
+            <h2><br/>BLOGROLLS</h2>
+            <ul>
+                    <li><a href="https://getpelican.com/">Pelican</a></li>
+                    <li><a href="https://www.python.org/">Python.org</a></li>
+                    <li><a href="https://palletsprojects.com/p/jinja/">Jinja2</a></li>
+                    <li><a href="#">You can modify those links in your config file</a></li>
+            </ul>
+
+        <p>
+                <span>
+                    <a href="https://github.com/Compl3x-9" target="_blank">
+                        <img class="social-icons-m" src="./theme/images/icons/github.png">
+                    </a>
+                </span>
+        </p>
+        <p>
+        </p>
+        <p>
+        </p>
+    </sidebar>
+
+    <maincontent>
+<h2>
+    <a href="./cryptohack-encoding-hidden.html" rel="bookmark" title="Permalink to /CryptoHack/General/Encoding full writeups">/CryptoHack/General/Encoding full writeups</a>
+</h2>
+
+<div>
+    <b>By: </b><a href="./author/compl3x-9.html">Compl3x-9</a><b>    On: </b>Sun 24 September 2023<br />
+    <b>In: </b><a href="./category/cryptohack.html" rel="bookmark" title="Permalink to CryptoHack">CryptoHack</a><br />
+    <em><b>Tags: </b>
+                <span><a href="./tag/writeup.html">#writeup </a></span>
+                <span><a href="./tag/crypto.html">#crypto </a></span>
+                <span><a href="./tag/easy.html">#easy </a></span>
+    </em>
+    <hr>
+</div>
+
+<div>
+    <mainarticle>
+    <h1>/CryptoHack/General/Encoding challenges</h1>
+<p><a href="https://cryptohack.org/">CryptoHack</a> is a platform full of cryptography
+challenges, which are focused on modern, applied solutions and algorithms.</p>
+<p>This group of challenges focus on data encodings, which are ways to represent
+different types of data.</p>
+<h2>ASCII</h2>
+<p>The OG encoding for text. It assigns an integer between 0 and 127 to each letter,
+punctuation sign and special text artifacts like line breaks or tabulations.</p>
+<p>This format is very simple, and has the advantage that every symbol is one byte,
+which simplifies things. In Linux, you can see the ASCII table using the command
+<code>man ascii</code>, otherwise it is everywhere on the internet.</p>
+<p>To complete the challenge, you must transform the array of numbers into
+characters using the ascii protocol. While it'd possible, easy and convenient
+to use an online transformation tool, I absolutely recommend solving it writing
+a python script, just to familiarize yourself with the functions.</p>
+<p>Here's my solution, using python's list comprehension syntax:</p>
+<div class="highlight"><pre><span></span><code><span class="n">c_ascii</span> <span class="o">=</span> <span class="p">[</span><span class="mi">99</span><span class="p">,</span> <span class="mi">114</span><span class="p">,</span> <span class="mi">121</span><span class="p">,</span> <span class="mi">112</span><span class="p">,</span> <span class="mi">116</span><span class="p">,</span> <span class="mi">111</span><span class="p">,</span> <span class="mi">123</span><span class="p">,</span> <span class="mi">76</span><span class="p">,</span> <span class="mi">97</span><span class="p">,</span> <span class="mi">122</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">68</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span>
+<span class="mi">107</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">58</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">125</span><span class="p">]</span>
+<span class="n">solved</span> <span class="o">=</span> <span class="p">[</span><span class="nb">chr</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">c_ascii</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">solved</span><span class="p">)</span> <span class="p">)</span>
+</code></pre></div>
+
+<h2>Hex</h2>
+<p>In binary, we can represent any kind of data, but it has a big disadvantage:
+it's too long. We could represent it with characters using ASCII, but they only
+go up to 127: they fit in one byte, but they can't represent one byte (plus
+some characters are not printable).</p>
+<p>A good meeting point between these solutions is doing it in <strong>hex</strong>, which is
+writing the data in base 16. In this encoding, each byte (or letter) is
+represented with two hex characters.</p>
+<p>Again, we must transform from one encoding into another, this time hex into
+ASCII. Here's my solution:</p>
+<div class="highlight"><pre><span></span><code><span class="n">c_hex</span> <span class="o">=</span> <span class="s2">&quot;63727970746f7b596f755f77696c6c5f62655f776f726b696e675f776974685f6865785f737472696e67735f615f6c6f747d&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">bytes</span><span class="o">.</span><span class="n">fromhex</span><span class="p">(</span><span class="n">c_hex</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+</code></pre></div>
+
+<p>Just remember that python's bytestrings are not strings: they're different
+kinds of data structures used for different things. To go from one another,
+use the methods <code>encode()</code> and <code>decode()</code>.</p>
+<h2>Base64</h2>
+<p>As the name implies, it uses an alphabet of 64 characters to write data in
+base 64. One character of this encoding represents 6 bits, which means that 4 of
+them represent 3 bytes. The characters used in the encoding are the
+54 uppercase and lowercase letters, the 10 digits and two other characters
+(the two most used are <code>+</code> and <code>/</code>, but they change in some standards).
+Sometimes, base64 strings end in equal signs (example: <code>bGlnaHQgdw==</code>), which
+occur when the last 3 bytes are not filled, and thus they serve as padding.</p>
+<p>For this challenge, we need to transform a hex string into a base64 one.
+So, we'll need to transform from hex to bytes first, then to base64.
+Code:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">base64</span>
+<span class="n">c_b64</span> <span class="o">=</span> <span class="s2">&quot;72bca9b68fc16ac7beeb8f849dca1d8a783e8acf9679bf9269f7bf&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="nb">bytes</span><span class="o">.</span><span class="n">fromhex</span><span class="p">(</span><span class="n">c_b64</span><span class="p">))</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+</code></pre></div>
+
+<h2>Bytes and big integers</h2>
+<p>A lot of cryptography can only work with numbers, not with text. Text can't be
+multiplied, added or divided, so we'll need a way to transform any kind of text
+into a number, and viceversa. Good thing we've done that already: we can transform
+it into a hex string and interpret it as a big number, base 10.</p>
+<p>While coding this process is quite easy, the functions <code>bytes_to_long()</code> and
+<code>long_to_bytes()</code> from PyCryptodome are usually used for convenience.</p>
+<p>So, we need to transform a number back into text. The solution:</p>
+<div class="highlight"><pre><span></span><code><span class="n">c_bigint</span> <span class="o">=</span> <span class="mi">11515195063862318899931685488813747395775516287289682636499965282714637259206269</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">long_to_bytes</span><span class="p">(</span><span class="n">c_bigint</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+</code></pre></div>
+
+<h2>Encoding Challenge</h2>
+<p>A simple programming challenge. Since it is worth more than 10 points, I can't
+post my solution here, but it is quite simple: the hard part is figuring
+out exactly what they ask from you for each <code>type</code> of encryption (cough cough,
+utf-8 is not ASCII).</p>
+<p>That's all the encoding challenges done. Good luck with the tough ones!</p>
+    </mainarticle>
+</div>
+<hr>
+        
+<div>
+        <i>If you found the article helpful, please share or cite the article, and spread the word:</i>
+            <p style="margin-top: 2%;">
+                <span><a target="_blank" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;" title="Twitter" href="https://twitter.com/share?url=./cryptohack-encoding-hidden.html&text=/CryptoHack/General/Encoding full writeups&via="><img class="social-icons-a" src="./theme/images/icons/twitter.png"></a></span>
+                <span><a target="_blank" title="Facebook" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;" href="https://www.facebook.com/sharer.php?u=./cryptohack-encoding-hidden.html&t=/CryptoHack/General/Encoding full writeups"><img class="social-icons-a" src="./theme/images/icons/facebook.png"></a></span>
+
+                <a  target="_blank" title="Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=./cryptohack-encoding-hidden.html&title=/CryptoHack/General/Encoding full writeups" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img class="social-icons-a" src="./theme/images/icons/linkedin.png"></a>
+            </p>
+</div>
+<hr>
+    <p><i>For any feedback or corrections, please write in to: </i><b> Compl3x-9 </b></p>
+        
+    </maincontent>
+
+  <!-- Analytics -->
+
+  </div>
+</body>
+
+</html>

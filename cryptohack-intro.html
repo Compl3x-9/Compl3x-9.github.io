@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en" itemscope itemtype="http://schema.org/Person">
+<head>
+  <meta charset="utf-8">
+  <!-- Site Meta Data -->
+  <title>CryptoHack: Introduction challenges write-up</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Compl3x-9">
+
+  <link rel="shortcut icon" href="">
+
+  <!-- schema.org -->
+  <meta itemprop="name" content="Compl3x-9's web">
+  <meta itemprop="image" content="">
+  <meta itemprop="description" content="">
+
+  <!-- Style Meta Data -->
+  <link rel="stylesheet" href="./theme/css/milligram.css" type="text/css" />
+  <link rel="stylesheet" href="./theme/css/custom.css" type="text/css" />
+  <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css"
+      crossorigin="anonymous">
+  <!-- Feed Meta Data -->
+
+  <!-- Twitter Feed -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="">
+  <meta name="twitter:image" content="">
+
+<meta name="twitter:creator" content="">
+<meta name="twitter:url" content="./cryptohack-intro.html">
+<meta name="twitter:title" content="Compl3x-9's web ~ CryptoHack: Introduction challenges write-up">
+<meta name="twitter:description" content="CryptoHack introduction">
+
+<!-- Facebook Meta Data -->
+<meta property="og:title" content="Compl3x-9's web ~ CryptoHack: Introduction challenges write-up" />
+<meta property="og:description" content="CryptoHack introduction" />
+<meta property="og:image" content="" />
+</head>
+
+<body>
+    <div class="container">
+
+    <!-- Navbar -->
+      <div class="navbar">
+        <ul>
+            <div>
+                <li>
+                    <a href="."><h3>Compl3x-9's web</h3></a>
+                </li>
+                <li>
+                </li>
+            </div>
+        </ul>
+      </div>
+
+  <!-- Sidebar -->
+    <sidebar>
+        <ul class="static-item">
+
+                <li><a href="./pages/about.html">About</a></li>
+                <li><a href="./pages/tfg.html">Bachelor's Thesis</a></li>
+        </ul>
+
+        <ul>
+                <div class="cat-border">
+                <li style="color: #F2F1EF; background-color: #6C7A89;">Categories</li>
+                    <li><a href="./category/cryptohack.html">CryptoHack</a></li>
+                    <li><a href="./category/publicity.html">Publicity</a></li>
+                </div>
+        </ul>
+
+            <h2><br/>BLOGROLLS</h2>
+            <ul>
+                    <li><a href="https://getpelican.com/">Pelican</a></li>
+                    <li><a href="https://www.python.org/">Python.org</a></li>
+                    <li><a href="https://palletsprojects.com/p/jinja/">Jinja2</a></li>
+                    <li><a href="#">You can modify those links in your config file</a></li>
+            </ul>
+
+        <p>
+                <span>
+                    <a href="https://github.com/Compl3x-9" target="_blank">
+                        <img class="social-icons-m" src="./theme/images/icons/github.png">
+                    </a>
+                </span>
+        </p>
+        <p>
+        </p>
+        <p>
+        </p>
+    </sidebar>
+
+    <maincontent>
+<h2>
+    <a href="./cryptohack-intro.html" rel="bookmark" title="Permalink to CryptoHack: Introduction challenges write-up">CryptoHack: Introduction challenges write-up</a>
+</h2>
+
+<div>
+    <b>By: </b><a href="./author/compl3x-9.html">Compl3x-9</a><b>    On: </b>Sat 23 September 2023<br />
+    <b>In: </b><a href="./category/cryptohack.html" rel="bookmark" title="Permalink to CryptoHack">CryptoHack</a><br />
+    <em><b>Tags: </b>
+                <span><a href="./tag/writeup.html">#writeup </a></span>
+                <span><a href="./tag/crypto.html">#crypto </a></span>
+                <span><a href="./tag/easy.html">#easy </a></span>
+    </em>
+    <hr>
+</div>
+
+<div>
+    <mainarticle>
+    <p><a href="https://cryptohack.org/">CryptoHack</a> is a platform full of cryptography challenges, which are focused on modern, applied solutions and algorithms instead of pure theory. The introduction challenges are very easy, and were created to guide users through the process of solving challenges and posting <strong>flags</strong> (Oh lovely flags, I adore thee!)</p>
+<p><em>But, mister Compl3x, if they are that easy then why are you writing a solution to them?</em> Glad you asked.</p>
+<p>I'm planning to make write-ups for all the challenges in CryptoHack but <strong>I dread</strong> doing anything creative (reasons: perfectionism, worry of being incorrect and, on Wednesdays, superglue inhalation). Creating this simple write-up is like a first step on the right direction. In the <a href="https://cryptohack.org/faq/#solutions">website's FAQ</a>, there's instructions about what challenges can be made public (basicly only the trivial ones), but if you wanna bitch about them you can e-mail me or something :) .</p>
+<h1>Introduction Challenges</h1>
+<h2>Finding flags</h2>
+<p>This challenge teach you about flags. Idk why they're called like that (neither do I know why these "hacker games" are called Capture The Flag when
+it has nothing to do with getting country flags, if someone knows then I'd be glad to hear :D ). A flag is a bit of text that has a special format
+to make it stand out. You'll get them at the end of a challenge, and it serves as proof that you've solved it.</p>
+<p>In CryptoHack, they follow the format <code>crypto{something_something_Kartoffeln}</code>, and in the description you can find the first one.</p>
+<p>Tough challenge.</p>
+<h2>Great snakes</h2>
+<blockquote>
+<p>Coding is for freaks, and snakes too. They should be together.
+<em>Probably someone, somewhere.</em></p>
+</blockquote>
+<p>You need to program stuff in cryptography, and the fastest and most confortable way of doing it in this particular field is in Python.
+There's built-in support for large integers (I LOVE THE <code>pow()</code> FUNCTION), a huge amount of libraries, and most importantly: everyone
+uses it for their challenges, which means all write-ups are in Python. So, unless you want to rewrite all the 200 line, crazy and compact solutions
+that you'll be reading, go and use this language.</p>
+<p>Here, your task is to simply download and run the python program from the challenge's description.</p>
+<h2>Network attacks</h2>
+<p>The internet can be used for more than watching TikToks or beatifuly, geniously
+made writeups like this one (<em>ChatGPT, what is modesty?</em>). In many challenges
+interaction with a server is needed, and the simplest and the most convenient
+way of doing it is through a TCP connexion, on which communication is
+done through text in both directions.</p>
+<p>In the description, they also mention that their servers will always recieve
+and send JSON objects, which is a very simple way to format data in
+plain text so that it's easy to parse.</p>
+<p>For this challenge, we need to send a JSON object with the key <code>buy</code> and the
+value <code>flag</code> to server <code>socket.cryptohack.org</code> on port <code>11112</code>. An example
+of that json object is <code>{"buy":"flag"}</code>, and we can communicate with the server
+using the command <code>netcat</code> or <code>nc</code>.</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>nc<span class="w"> </span>socket.cryptohack.org<span class="w"> </span><span class="m">11112</span>
+Welcome<span class="w"> </span>to<span class="w"> </span>netcat<span class="s1">&#39;s flag shop!</span>
+<span class="s1">What would you like to buy?</span>
+<span class="s1">I only speak JSON, I hope that&#39;</span>s<span class="w"> </span>ok.
+
+--&gt;<span class="w"> </span><span class="o">{</span><span class="s2">&quot;buy&quot;</span>:<span class="s2">&quot;flag&quot;</span><span class="o">}</span>
+<span class="o">{</span><span class="s2">&quot;flag&quot;</span>:<span class="w"> </span><span class="s2">&quot;go and do this challenge yourself you lazy&quot;</span><span class="o">}</span>
+</code></pre></div>
+
+<p>Btw, in the description there's a python script which almost solves the
+challenge (you only need to change a word). It'd be a good idea to save it as a
+template, because we tend to forget the name of that damn json or
+telnetlib function (at least I do).</p>
+<h3>End</h3>
+<p>If you have any questions or suggestions, contact me (future me, delete this line if it gets out of hand)
+Happy Hacking!</p>
+    </mainarticle>
+</div>
+<hr>
+        
+<div>
+        <i>If you found the article helpful, please share or cite the article, and spread the word:</i>
+            <p style="margin-top: 2%;">
+                <span><a target="_blank" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;" title="Twitter" href="https://twitter.com/share?url=./cryptohack-intro.html&text=CryptoHack: Introduction challenges write-up&via="><img class="social-icons-a" src="./theme/images/icons/twitter.png"></a></span>
+                <span><a target="_blank" title="Facebook" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;" href="https://www.facebook.com/sharer.php?u=./cryptohack-intro.html&t=CryptoHack: Introduction challenges write-up"><img class="social-icons-a" src="./theme/images/icons/facebook.png"></a></span>
+
+                <a  target="_blank" title="Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=./cryptohack-intro.html&title=CryptoHack: Introduction challenges write-up" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img class="social-icons-a" src="./theme/images/icons/linkedin.png"></a>
+            </p>
+</div>
+<hr>
+    <p><i>For any feedback or corrections, please write in to: </i><b> Compl3x-9 </b></p>
+        
+    </maincontent>
+
+  <!-- Analytics -->
+
+  </div>
+</body>
+
+</html>
