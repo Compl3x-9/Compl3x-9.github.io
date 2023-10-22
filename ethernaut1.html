@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en" itemscope itemtype="http://schema.org/Person">
+<head>
+  <meta charset="utf-8">
+  <!-- Site Meta Data -->
+  <title>/Ethernaut/Level 1 writeup</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Compl3x-9">
+
+  <link rel="shortcut icon" href="">
+
+  <!-- schema.org -->
+  <meta itemprop="name" content="Compl3x-9's web">
+  <meta itemprop="image" content="">
+  <meta itemprop="description" content="">
+
+  <!-- Style Meta Data -->
+  <link rel="stylesheet" href="./theme/css/milligram.css" type="text/css" />
+  <link rel="stylesheet" href="./theme/css/custom.css" type="text/css" />
+  <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css"
+      crossorigin="anonymous">
+  <!-- Feed Meta Data -->
+
+  <!-- Twitter Feed -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="">
+  <meta name="twitter:image" content="">
+
+<meta name="twitter:creator" content="">
+<meta name="twitter:url" content="./ethernaut1.html">
+<meta name="twitter:title" content="Compl3x-9's web ~ /Ethernaut/Level 1 writeup">
+<meta name="twitter:description" content="Write-up of the first level of Ethernaut, a web3 wargame.">
+
+<!-- Facebook Meta Data -->
+<meta property="og:title" content="Compl3x-9's web ~ /Ethernaut/Level 1 writeup" />
+<meta property="og:description" content="Write-up of the first level of Ethernaut, a web3 wargame." />
+<meta property="og:image" content="" />
+</head>
+
+<body>
+    <div class="container">
+
+    <!-- Navbar -->
+      <div class="navbar">
+        <ul>
+            <div>
+                <li>
+                    <a href="."><h3>Compl3x-9's web</h3></a>
+                </li>
+                <li>
+                </li>
+            </div>
+        </ul>
+      </div>
+
+  <!-- Sidebar -->
+    <sidebar>
+        <ul class="static-item">
+
+                <li><a href="./pages/about.html">About</a></li>
+                <li><a href="./pages/tfg.html">Thesis</a></li>
+        </ul>
+
+        <ul>
+                <div class="cat-border">
+                <li style="color: #F2F1EF; background-color: #6C7A89;">Categories</li>
+                    <li><a href="./category/cryptohack.html">CryptoHack</a></li>
+                    <li><a href="./category/ethernaut.html">Ethernaut</a></li>
+                    <li><a href="./category/publicity.html">Publicity</a></li>
+                </div>
+        </ul>
+
+            <h2><br/>BLOGROLLS</h2>
+            <ul>
+                    <li><a href="https://7rocky.github.io/en/">Cool guy</a></li>
+                    <li><a href="https://karpathy.ai/">Awesome fella</a></li>
+                    <li><a href="https://jlxip.net/">He scares me</a></li>
+            </ul>
+
+        <p>
+                <span>
+                    <a href="https://github.com/Compl3x-9" target="_blank">
+                        <img class="social-icons-m" src="./theme/images/icons/github.png">
+                    </a>
+                </span>
+        </p>
+        <p>
+        </p>
+        <p>
+        </p>
+    </sidebar>
+
+    <maincontent>
+<h2>
+    <a href="./ethernaut1.html" rel="bookmark" title="Permalink to /Ethernaut/Level 1 writeup">/Ethernaut/Level 1 writeup</a>
+</h2>
+
+<div>
+    <b>By: </b><a href="./author/compl3x-9.html">Compl3x-9</a><b>    On: </b>Sun 22 October 2023<br />
+    <b>In: </b><a href="./category/ethernaut.html" rel="bookmark" title="Permalink to Ethernaut">Ethernaut</a><br />
+    <em><b>Tags: </b>
+                <span><a href="./tag/writeup.html">#writeup </a></span>
+                <span><a href="./tag/web3.html">#web3 </a></span>
+                <span><a href="./tag/easy.html">#easy </a></span>
+    </em>
+    <hr>
+</div>
+
+<div>
+    <mainarticle>
+    <h1>ETHERNAUT, LEVEL 1</h1>
+<p>Two weeks ago, I didn't know anything about blockchain technologies nor cryptocurrency.
+The image I had of that world were stupidly expensive monkey avatars, Coffeezilla scams
+and "cryptobros" (the term we use in Spain for people who is really deep into crypto
+but they don't understand what, why or how). Then I came across <a href="https://docs.gensyn.ai/litepaper/">Gensyn's litepaper</a>,
+and as a Cryptography and AI nerd I fell in love with it. If you have some time and
+you enjoy this kind of stuff,
+this epic crypto-ML-game_theory showdown will surely entretain you.</p>
+<p>That was two weeks ago. After going through this <a href="https://www.youtube.com/playlist?list=PLxVihxZC42nF_MCN9PTvZMIifRjx9cZ2J">web3 blockchain fundamentals MOOC</a>
+and reading articles about ethereum, solidity and the EVM, my view about that changed
+from a gimmic into a really helpful technology which could be very helpful if used correctly.
+Now I'm confident I could at least start some projects using my new knowledge, and
+<strong>Ethernaut</strong> will be one of them. This is an <em>OverTheWire-inspired Web3/Solidity</em> wargame,
+and I thought it'd be a fast way to learn Solidity's small details and best
+practices. These write-ups will be perfect for you if you're used to programming,
+cybersecurity and learning new programming languages is easy for you; but you
+have 0 clue about smart contracts and solidity.</p>
+<h3>Intro of the intro: important concepts to understand</h3>
+<p>First thing that was new to me was the concept of the <strong>EVM</strong> (Ethereum Virtual Machine), which
+I understand to be a special computer which is in a state everyone agrees. This means
+that there's consensus in its memory values, its code and its functions.
+For that to happen, everything must be public, which means that there's no unknown information.</p>
+<p>In this wargame you're intended to interact with the EVM using your
+browser's Javascript console. Javascript can easily interact with smart contracts
+thanks to Ethereum's <strong>ABI</strong> (Application Binary Interface), which gives a language-agnostic
+interface for all the contract's variables, functions, etc. It doesn't describe the functions though.
+To know what the functions
+do, you have to read the contract's source code or, if you don't have it, inspect
+the compiled smart contract bytecode, which sounds a bit hellish and I haven't done yet.
+Thanks to that bytecode, Ethereum is language-agnostic too, just like a laptop or a desktop computer.
+<strong>Solidity</strong> is the most used high-level language for writing smart contracts for Ethereum (I think)
+and the one used for Ethernaut
+but it is not the only one; Vyper, Yul and Yul+ are some alternatives.</p>
+<p>The second concept which was new to me was Ethereum's <strong>smart contracts</strong>. When they're deployed
+into the blockchain, they behave like a normal Ethereum "account": it has a public address,
+it can hold Ether and send it. The difference comes in that you can interact with its code
+using <a href="https://ethereum.org/en/developers/docs/apis/json-rpc/">Ethereum's JSON RPC API</a>(acronym overload!).
+Smart contracts can interact with each other too using this, and most of the smart contract languages
+facilitate these interactions.</p>
+<p>Other concepts which might be helpful are:
+- <em>TestNets</em>: Alternative blockchains which mimicks Ethereum, which aims to give a test environment to
+  developers. They have their own EVM and currency.
+- <em>Faucets</em>: Free ways to get TestNet currency. You'll get more than enough coins for the challenges.
+- <em>Gas</em>: It refers to the cost of changing the EVM state. Each of Ethereum's bytecodes has a fixed
+  cost in gas, which get added into a cost estimation each time that you request to run something.
+  Gas costs stay constant, but gas prices fluctuate.
+- <em>Wei</em>: Smallest possible amount of ether. 1ETH = <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><msup><mn>0</mn><mn>18</mn></msup></mrow><annotation encoding="application/x-tex">10^{18}</annotation></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">18</span></span></span></span></span></span></span></span></span></span></span></span> WEI</p>
+<p>There's a level 0 in this wargame that explains everything to you, which you can play to get yourself
+familiarize with all of those concepts.</p>
+<p>If anyone's wandering, to play Ethernaut I'm using LibreWolf with the MetaMask extension,
+which automatically plugs in with all the javascript libraries and manages my wallets.
+If you see any ETH address, keep in mind that I'll be using them in Ethernaut only.</p>
+<p>And after this long intro, let's get into the challenge.</p>
+<h2>The challenge</h2>
+<blockquote>
+<p>Look carefully at the contract's code below.</p>
+<p>You will beat this level if:</p>
+<div class="highlight"><pre><span></span><code><span class="mf">1.</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">claim</span><span class="w"> </span><span class="n">ownership</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="kr">cont</span><span class="n">ract</span>
+<span class="mf">2.</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">reduce</span><span class="w"> </span><span class="n">its</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="kr">to</span><span class="w"> </span><span class="mf">0</span>
+</code></pre></div>
+
+<p>Things that might help:</p>
+<div class="highlight"><pre><span></span><code><span class="o">-</span><span class="w"> </span><span class="nv">How</span><span class="w"> </span><span class="nv">to</span><span class="w"> </span><span class="k">send</span><span class="w"> </span><span class="nv">ether</span><span class="w"> </span><span class="nv">when</span><span class="w"> </span><span class="nv">interacting</span><span class="w"> </span><span class="nv">with</span><span class="w"> </span><span class="nv">an</span><span class="w"> </span><span class="nv">ABI</span>
+<span class="o">-</span><span class="w"> </span><span class="nv">How</span><span class="w"> </span><span class="nv">to</span><span class="w"> </span><span class="k">send</span><span class="w"> </span><span class="nv">ether</span><span class="w"> </span><span class="nv">outside</span><span class="w"> </span><span class="nv">of</span><span class="w"> </span><span class="nv">the</span><span class="w"> </span><span class="nv">ABI</span>
+<span class="o">-</span><span class="w"> </span><span class="nv">Converting</span><span class="w"> </span><span class="nv">to</span><span class="w"> </span><span class="nv">and</span><span class="w"> </span><span class="nv">from</span><span class="w"> </span><span class="nv">wei</span><span class="o">/</span><span class="nv">ether</span><span class="w"> </span><span class="nv">units</span><span class="w"> </span><span class="ss">(</span><span class="nv">see</span><span class="w"> </span><span class="nv">help</span><span class="ss">()</span><span class="w"> </span><span class="nv">command</span><span class="ss">)</span>
+<span class="o">-</span><span class="w"> </span><span class="nv">Fallback</span><span class="w"> </span><span class="nv">methods</span>
+</code></pre></div>
+
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="c1">// SPDX-License-Identifier: MIT</span>
+<span class="k">pragma solidity</span><span class="w"> </span><span class="o">^</span><span class="k">0.8.0</span><span class="p">;</span>
+
+<span class="k">contract</span><span class="w"> </span><span class="ni">Fallback</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="kt">mapping</span><span class="p">(</span><span class="kt">address</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="kt">uint</span><span class="p">)</span><span class="w"> </span><span class="kt">public</span><span class="w"> </span>contributions<span class="p">;</span>
+<span class="w">  </span><span class="kt">address</span><span class="w"> </span><span class="k">public </span><span class="nv">owner</span><span class="p">;</span>
+
+<span class="w">  </span><span class="kt">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span>owner<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">msg.sender</span><span class="p">;</span>
+<span class="w">    </span>contributions<span class="p">[</span><span class="k">msg.sender</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m m-Decimal">1000</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="m m-Decimal">1</span><span class="w"> </span>ether<span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="kt">modifier</span><span class="w"> </span>onlyOwner<span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">require</span><span class="p">(</span>
+<span class="w">            </span><span class="k">msg.sender</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>owner<span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;caller is not the owner&quot;</span>
+<span class="w">        </span><span class="p">);</span>
+<span class="w">        </span>_<span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">  </span><span class="kt">function</span><span class="w"> </span><span class="nv">contribute</span><span class="p">()</span><span class="w"> </span><span class="kt">public</span><span class="w"> </span><span class="kt">payable</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">require</span><span class="p">(</span><span class="k">msg.value</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m m-Decimal">0</span><span class="p">.</span><span class="m m-Decimal">001</span><span class="w"> </span>ether<span class="p">);</span>
+<span class="w">    </span>contributions<span class="p">[</span><span class="k">msg.sender</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="k">msg.value</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">if</span><span class="p">(</span>contributions<span class="p">[</span><span class="k">msg.sender</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span>contributions<span class="p">[</span>owner<span class="p">])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span>owner<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">msg.sender</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="kt">function</span><span class="w"> </span><span class="nv">getContribution</span><span class="p">()</span><span class="w"> </span><span class="kt">public</span><span class="w"> </span>view<span class="w"> </span><span class="kt">returns</span><span class="w"> </span><span class="p">(</span><span class="kt">uint</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">return</span><span class="w"> </span>contributions<span class="p">[</span><span class="k">msg.sender</span><span class="p">];</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="kt">function</span><span class="w"> </span><span class="nv">withdraw</span><span class="p">()</span><span class="w"> </span><span class="kt">public</span><span class="w"> </span>onlyOwner<span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">payable</span><span class="p">(</span>owner<span class="p">).</span>transfer<span class="p">(</span><span class="kt">address</span><span class="p">(</span><span class="kt">this</span><span class="p">).</span>balance<span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span>receive<span class="p">()</span><span class="w"> </span><span class="kt">external</span><span class="w"> </span><span class="kt">payable</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">require</span><span class="p">(</span><span class="k">msg.value</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m m-Decimal">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>contributions<span class="p">[</span><span class="k">msg.sender</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m m-Decimal">0</span><span class="p">);</span>
+<span class="w">    </span>owner<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">msg.sender</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3>Analysis</h3>
+<p>Reading the challenge, we see that there's an owner variable that we must change to be
+us. If we can get that, the second part of the challenge, reducing the contract's balance
+to 0, will be trivial by calling the <code>withdraw()</code> function (which can only be called by
+the owner thanks to the <code>onlyOwner</code> modifier.</p>
+<p>There are three functions in this contract that change the ownership of the contract (line
+<code>owner = msg.sender;</code>, one is in the constructor, inside <code>contribute()</code> and in <code>receive()</code>.
+The constructor, as far as I'm aware, is only executed in the creation of the contract,
+so we can discard it; meanwhile, in <code>contribute()</code> we need to trigger the condition of
+contributing more than the original owner, which would mean sending more than 1000
+coins (999'7 currency to go for me!). This only leaves us with the last option.
+To meet the <code>require</code> conditions of <code>recieve()</code>, we need to have contributed any amount before,
+which we can do if we send currency to the <em>payable</em> function <code>contribute()</code>.</p>
+<p>So the plan is set: we send some currency through <code>contribute()</code>, then we execute
+the <code>recieve()</code> procedure, and finaly we can <code>withdraw()</code> all ETH.</p>
+<h3>Execution</h3>
+<p>To call a contract's function or seeing a variable, thanks to the ABI and the RPC protocol, it's as easy
+as to load the contract as a Javascript object (which Ethernaut does when starting the level inside
+the var <code>contract</code>), and then use the variable or function's name as a method (it uses javascript's
+promise interface, so put an <code>await</code> at the start to get a prettier output).</p>
+<div class="highlight"><pre><span></span><code>&gt;&gt; await contract.owner()
+&quot;0x3c34A342b2aF5e885FcaA3800dB5B205fEfa3ffB&quot;
+</code></pre></div>
+
+<p>Here, I got stuck because I didn't know how to call a function with some ETH
+attached to it with the libraries that Ethernaut uses. After some searching
+and testing, it seems that every <code>payable</code> function accepts one extra
+argument which specifies the ether amount in weis.</p>
+<div class="highlight"><pre><span></span><code>&gt;&gt; contract.contribute({value:toWei(&#39;0.0001&#39;,&#39;ether&#39;)})
+
+&gt;&gt; (await contract.getContribution()).toNumber()
+100000000000000 //in weis
+</code></pre></div>
+
+<p>Then, I tried to do the same with <code>recieve()</code>, but it wouldn't let me.
+My guess was that, because it didn't have the <code>function</code> keyword in
+his declaration, it couldn't be run, but no. After reading Solidity's
+<a href="https://docs.soliditylang.org/en/latest/style-guide.html#order-of-functions">code style guide</a>,
+I saw that it was a special function that was called when sending
+coins to the contract, without specifying a function. So, to trigger
+that code, I did a normal send to the contract address.</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nx">sendTransaction</span><span class="p">({</span><span class="kr">from</span><span class="o">:</span><span class="nx">player</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="o">:</span><span class="nx">instance</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="o">:</span><span class="nx">toWei</span><span class="p">(</span><span class="s1">&#39;0.0001&#39;</span><span class="p">,</span><span class="s1">&#39;ether&#39;</span><span class="p">)})</span>
+
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">contract</span><span class="p">.</span><span class="nx">owner</span><span class="p">()</span>
+<span class="s2">&quot;0xdeadbeefffffffff0123456789aBcDeFffffffff&quot;</span>
+<span class="c1">// My address!!</span>
+</code></pre></div>
+
+<p>Finally, there was one thing left to do.</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nx">contract</span><span class="p">.</span><span class="nx">withdraw</span><span class="p">()</span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">getBalance</span><span class="p">(</span><span class="nx">instance</span><span class="p">)</span>
+<span class="s2">&quot;0&quot;</span>
+</code></pre></div>
+
+<h3>End</h3>
+<p>After submitting the instance, this message shows up, which means that you've fixed
+your parents' marriage (good luck!)</p>
+<blockquote>
+<p>You know the basics of how ether goes in and out of contracts, including the usage of the fallback method.
+You've also learnt about OpenZeppelin's Ownable contract, and how it can be used to restrict the usage of some methods to a privileged address.
+Move on to the next level when you're ready!</p>
+</blockquote>
+    </mainarticle>
+</div>
+<hr>
+        
+<div>
+        <i>If you found the article helpful, please share or cite the article, and spread the word:</i>
+            <p style="margin-top: 2%;">
+                <span><a target="_blank" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;" title="Twitter" href="https://twitter.com/share?url=./ethernaut1.html&text=/Ethernaut/Level 1 writeup&via="><img class="social-icons-a" src="./theme/images/icons/twitter.png"></a></span>
+                <span><a target="_blank" title="Facebook" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;" href="https://www.facebook.com/sharer.php?u=./ethernaut1.html&t=/Ethernaut/Level 1 writeup"><img class="social-icons-a" src="./theme/images/icons/facebook.png"></a></span>
+
+                <a  target="_blank" title="Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=./ethernaut1.html&title=/Ethernaut/Level 1 writeup" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img class="social-icons-a" src="./theme/images/icons/linkedin.png"></a>
+            </p>
+</div>
+<hr>
+    <p><i>For any feedback or corrections, please write in to: </i><b> Compl3x-9 </b></p>
+        
+    </maincontent>
+
+  <!-- Analytics -->
+
+  </div>
+</body>
+
+</html>
